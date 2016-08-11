@@ -29,7 +29,7 @@ class CASServerServiceProvider extends ServiceProvider
         ], 'migrations');
 
         $this->publishes([
-            __DIR__.'/public/vendor/casserver' => public_path('vendor/casserver'),
+            __DIR__.'/../public/vendor/casserver' => public_path('vendor/casserver'),
         ], 'public');
 
         $this->publishes([
