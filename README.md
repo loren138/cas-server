@@ -50,6 +50,17 @@ setting references your class.
 
 You should now have a working CAS Server.
 
+## Table Cleanup
+
+It is recommended that you have CAS cleanup the authentication and ticket tables daily.
+You can do that by adding the following in the schedule function in your
+``console/Kernel.php`` file
+
+    $schedule->command('casserver:cleanup')->daily();
+    
+Note: For this to work, you must have setup a cron job to call Laravel's command:
+https://laravel.com/docs/5.2/scheduling#introduction
+
 ## Session configuration
 
 It is recommended to verify/set the following in ``config/session.php``:
