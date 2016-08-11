@@ -18,7 +18,7 @@
     "require": {
         "php": ">=5.5.0",
         "laravel/framework": "5.1.x|5.2.x|5.3.x",
-        "laravelcollective/html": "^5.2",
+        "laravelcollective/html": "^5.0",
         "paragonie/random_compat": "^1.0"
     },
     "require-dev": {
