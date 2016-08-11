@@ -1,5 +1,5 @@
 {
-    "name": "Loren138/cas-server",
+    "name": "loren138/cas-server",
     "description": "A CAS Server form Single Sign On (SSO) implemented as a Laravel Package.",
     "keywords": ["laravel", "cas", "sso"],
     "license": "MIT",
