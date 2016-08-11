@@ -31,14 +31,14 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Form' => 'Collective\Html\FormFacade',
+            //'Form' => 'Collective\Html\FormFacade',
             //'YourPackage' => 'YourProject\YourPackage\Facades\YourPackage',
         ];
     }
 
     protected function getPackageProviders($app)
     {
-        return ['Loren138\CASServer\CASServerServiceProvider', 'Collective\Html\HtmlServiceProvider'];
+        return ['Loren138\CASServer\CASServerServiceProvider'];
     }
 
     /**

@@ -34,6 +34,26 @@
                 cookieDiv.style.display = 'block';
             }
         }
+        var capsDiv = document.getElementById("capsOn")
+
+        document.onkeypress = function ( e ) {
+            e = (e) ? e : window.event;
+
+            var kc = ( e.keyCode ) ? e.keyCode : e.which; // get keycode
+            var isUp = !!(kc >= 65 && kc <= 90); // uppercase
+            var isLow = !!(kc >= 97 && kc <= 122); // lowercase
+            var isShift = ( e.shiftKey ) ? e.shiftKey : ( (kc == 16) ); // shift is pressed -- works for IE8-
+
+            // uppercase w/out shift or lowercase with shift == caps lock
+            if (capsDiv) {
+                if ((isUp && !isShift) || (isLow && isShift)) {
+                    capsDiv.style.display = 'block';
+                } else {
+                    capsDiv.style.display = 'none';
+                }
+            }
+
+        }
     })();
 </script>
 </body>

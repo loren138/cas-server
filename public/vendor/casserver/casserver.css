@@ -99,6 +99,10 @@ body {
     padding: 10px 50px 10px 50px;
     font-size: 14px;
 }
+#capsOn {
+    color: #b71c1c;
+    margin: 10px 0;
+}
 .card .error .title {
     color: #b71c1c;
     font-size: 24px;
@@ -114,6 +118,10 @@ body {
 .card .input-container {
     position: relative;
     margin: 0 60px 50px;
+}
+.card .input-container.no-bottom-margin {
+    position: relative;
+    margin: 0 60px 0;
 }
 .card .input-container input {
     outline: none;
