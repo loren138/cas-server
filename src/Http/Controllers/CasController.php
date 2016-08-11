@@ -166,7 +166,7 @@ class CasController extends Controller
             return $response;
         }
 
-        return response()->view('casserver::ticket_xml', $response)->header('Content-Type', 'text/xml');
+        return response()->view('casserverxml::ticket_xml', $response)->header('Content-Type', 'text/xml');
     }
 
     /*

@@ -18,6 +18,7 @@ class CASServerServiceProvider extends ServiceProvider
             require __DIR__.'/../resources/routes.php';
         }
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'casserver');
+        $this->loadViewsFrom(__DIR__.'/../resources/xml', 'casserverxml');
 
         $this->publishes([
             __DIR__.'/../config/casserver.php' => config_path('casserver.php')
