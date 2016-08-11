@@ -8,6 +8,11 @@
             "name": "Loren Klingman",
             "homepage": "http://klingman.us",
             "role": "developer"
+        },
+        {
+            "name": "SBTS",
+            "homepage": "http://www.sbts.edu",
+            "role": "developer"
         }
     ],
     "require": {
