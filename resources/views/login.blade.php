@@ -25,8 +25,17 @@
             <h2 class="title">Cookies are Disabled</h2>
             <p>Since your browser is not accepting cookies, single sign on will not work.</p>
         </div>
-        <form method="POST" action="{{ url('login') }}" accept-charset="UTF-8" autocomplete="off"><input name="_token" type="hidden" value="oYOPrgrkBzQvCajVE4zOxsI0dmp1fevjlZlD9JeD">
+        <form method="POST" action="{{ url('login') }}" accept-charset="UTF-8" autocomplete="off">
+            {{ csrf_field() }}
+            @if ($service)
+                <input type="hidden" name="service" value="{{$service}}">
+            @endif
 
+            @if ($error)
+                <div class="error">
+                    <h2 class="title">{{ $error }}</h2>
+                </div>
+            @endif
             <div class="input-container">
                 <input required="required" tabindex="1" accesskey="u" size="25" autocomplete="off" name="username" type="text" value="">
                 <label for="username">Username</label>

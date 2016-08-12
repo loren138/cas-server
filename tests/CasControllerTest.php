@@ -583,6 +583,7 @@ class CasControllerTest extends TestCase
 
     public function testUnitGetLogin()
     {
+        session()->start();
         $request = new Request();
         $cas = new CasController($request);
         $service = new Service();
@@ -596,6 +597,7 @@ class CasControllerTest extends TestCase
 
     public function testUnitGetLogin2()
     {
+        session()->start();
         $request = new Request();
         $cas = new CasController($request);
         $service = new Service();
@@ -607,6 +609,7 @@ class CasControllerTest extends TestCase
 
     public function testUnitGetLogin3()
     {
+        session()->start();
         $request = new Request();
         config(['casserver.disableNonSSL' => true]);
         $request->server->set('HTTPS', 'on');
@@ -622,6 +625,7 @@ class CasControllerTest extends TestCase
 
     public function testUnitGetLogin4()
     {
+        session()->start();
         $this->expectException(\Exception::class);
         $this->expectExceptionMessageRegExp("/SSL/");
         config(['casserver.disableNonSSL' => true]);
@@ -633,8 +637,22 @@ class CasControllerTest extends TestCase
         $cas->getLogin($request, $service, $auth, $ticket);
     }
 
+    public function testUnitGetLogin5()
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessageRegExp("/session/");
+        config(['casserver.disableNonSSL' => true]);
+        $request = new Request();$request->server->set('HTTPS', 'on');
+        $cas = new CasController($request);
+        $service = new Service();
+        $auth = \Mockery::mock('\Loren138\CASServer\Models\CASAuthentication');
+        $ticket = new CASTicket();
+        $cas->getLogin($request, $service, $auth, $ticket);
+    }
+
     public function testUnitPostLogin()
     {
+        session()->start();
         $request = new Request();
         $cas = new CasController($request);
         $request->replace(['username' => 'testUser', 'password' =>'test']);
@@ -650,6 +668,7 @@ class CasControllerTest extends TestCase
 
     public function testUnitPostLogin2()
     {
+        session()->start();
         $request = new Request();
         $cas = new CasController($request);
         $request->replace(['username' => 'testUser', 'password' =>'test2']);
@@ -668,6 +687,7 @@ class CasControllerTest extends TestCase
 
     public function testUnitPostLogin3()
     {
+        session()->start();
         $request = new Request();
         $cas = new CasController($request);
         $request->replace(['username' => 'testUser', 'password' =>'test2']);
