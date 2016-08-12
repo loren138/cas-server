@@ -119,5 +119,11 @@ return [
             'description' => 'Warning: This is for test applications only.',
             'urlRegex' => '^(https?)://([A-Za-z0-9_-]+\.)localhost.*'
         ],
-    ]
+    ],
+
+    /*
+     * This is useful for people running SQL Server and freeTDS to correct the date format
+     * so it can be properly parsed by Laravel if it is currently causing errors.
+     */
+    'dateFormatOverride' => null, //'Y-m-d H:i:s'
 ];

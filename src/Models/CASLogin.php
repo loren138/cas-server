@@ -44,6 +44,10 @@ class CASLogin extends Model
         if (!array_key_exists('Loren138\CASServer\Models\CASUserInterface', class_implements($this->userClass))) {
             throw new \Exception('The user class must implement Loren138\CASServer\Models\CASUserInterface!');
         }
+
+        if (config('casserver.dateFormatOverride')) {
+            $this->setDateFormat(config('casserver.dateFormatOverride'));
+        }
     }
 
     private function throttleBy($username, $ip)

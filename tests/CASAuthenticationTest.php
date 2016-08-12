@@ -265,9 +265,11 @@ class CasAuthenticationTest extends TestCase
         //casserver.timeouts.ssoSessionTimeout
         config(['casserver.timeouts.ssoSessionTimeout' => '2 days']);
         config(['casserver.timeouts.ssoSessionMaxIdle' => '2 minutes']);
+        config(['casserver.dateFormatOverride' => 'aa']);
         $auth = new CASAuthentication();
         $this->assertSame($auth->maxInterval, '2 minutes');
         $this->assertSame($auth->maxTime, '2 days');
+        $this->assertSame($auth->fromDateTime(new \DateTime('2015-01-01 11:00am')), 'amam');
     }
 
     public function testUseAuth()

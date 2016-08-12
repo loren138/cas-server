@@ -143,9 +143,10 @@ class CasTicketTest extends TestCase
     public function testConfig()
     {
         config(['casserver.timeouts.ticketTimeout' => '2 hours']);
+        config(['casserver.dateFormatOverride' => 'aa']);
         $ticket = new CASTicket();
         $this->assertSame($ticket->maxInterval, '2 hours');
-        config(['casserver.timeouts.ticketTimeout' => '10 seconds']);
+        $this->assertSame($ticket->fromDateTime(new \DateTime('2015-01-01 11:00am')), 'amam');
     }
 
     public function testGenerateTicket2()

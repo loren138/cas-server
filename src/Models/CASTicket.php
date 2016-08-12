@@ -38,6 +38,10 @@ class CASTicket extends Model
     {
         parent::__construct($attributes);
         $this->maxInterval = config('casserver.timeouts.ticketTimeout', '10 seconds');
+
+        if (config('casserver.dateFormatOverride')) {
+            $this->setDateFormat(config('casserver.dateFormatOverride'));
+        }
     }
 
     private function randomStr($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')

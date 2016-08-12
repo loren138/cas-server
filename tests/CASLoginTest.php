@@ -17,6 +17,7 @@ class CASLoginTest extends TestCase
             'casserver.loginThrottling.maxAttemptsBeforeThrottle' => '400.5o',
             'casserver.loginThrottling.throttleReset' => '2 hours',
             'casserver.userClass' => UserFake::class,
+            'casserver.dateFormatOverride' => 'aa'
         ]);
         $login = new CASLogin();
         $this->assertSame($login->throttleByConfig, 'ip');
@@ -24,6 +25,7 @@ class CASLoginTest extends TestCase
         $this->assertSame($login->maxAttemptsBeforeThrottle, 400);
         $this->assertSame($login->throttleReset, '2 hours');
         $this->assertSame($login->userClass, 'Loren138\CASServerTests\UserFake');
+        $this->assertSame($login->fromDateTime(new \DateTime('2015-01-01 11:00am')), 'amam');
     }
 
     public function testBadSetting()

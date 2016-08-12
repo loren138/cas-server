@@ -43,6 +43,10 @@ class CASAuthentication extends Model
         parent::__construct($attributes);
         $this->maxTime = config('casserver.timeouts.ssoSessionTimeout', '8 hours');
         $this->maxInterval = config('casserver.timeouts.ssoSessionMaxIdle', '40 minutes');
+
+        if (config('casserver.dateFormatOverride')) {
+            $this->setDateFormat(config('casserver.dateFormatOverride'));
+        }
     }
 
     public function loggedIn()
