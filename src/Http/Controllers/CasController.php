@@ -17,6 +17,9 @@ class CasController extends Controller
         if (config('casserver.disableNonSSL', false) && !$request->secure()) {
             throw new \Exception('Request not SSL.');
         }
+        if (!session()->isStarted()) {
+            throw new \Exception('Sessions are required for CAS Server.  Please re-enable the session middleware.');
+        }
     }
 
     public function getIndex()

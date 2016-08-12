@@ -2,6 +2,7 @@
 
 namespace Loren138\CASServer;
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Loren138\CASServer\Console\Cleanup;
 
@@ -10,12 +11,22 @@ class CASServerServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      *
-     * @return void
+     * @param Router $router
      */
-    public function boot()
+    public function boot(Router $router)
     {
         if (!$this->app->routesAreCached()) {
-            require __DIR__.'/../resources/routes.php';
+            $l = app();
+            $version = explode('.', $l::VERSION);
+            if (intval($version[0], 10) === 5 && intval($version[1], 10) > 1) {
+                $router->group([
+                    'middleware' => 'web',
+                ], function () {
+                    require __DIR__.'/../resources/routes.php';
+                });
+            } else {
+                require __DIR__.'/../resources/routes.php';
+            }
         }
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'casserver');
         $this->loadViewsFrom(__DIR__.'/../resources/xml', 'casserverxml');

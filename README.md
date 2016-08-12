@@ -69,6 +69,10 @@ It is recommended to verify/set the following in ``config/session.php``:
     'secure'    => true,
     'http_only' => true,
 
+It is also recommended to change the cookie name in ``config/session.php``:
+
+    'cookie' => 'cas_session',
+
 ## SSL
 
 Single Sign on Sessions are only stored if you are using SSL.
