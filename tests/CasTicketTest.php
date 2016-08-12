@@ -149,6 +149,15 @@ class CasTicketTest extends TestCase
         $this->assertSame($ticket->fromDateTime(new \DateTime('2015-01-01 11:00am')), 'amam');
     }
 
+    public function testDefaultDateOverrideConfig()
+    {
+        config([
+            'casserver.userClass' => UserFake::class
+        ]);
+        $ticket = new CASTicket();
+        $this->assertSame($ticket->fromDateTime(new \DateTime('2015-01-01 11:00am')), '2015-01-01 11:00:00');
+    }
+
     public function testGenerateTicket2()
     {
         $knownDate = Carbon::create(2001, 5, 21, 12, 1, 2);

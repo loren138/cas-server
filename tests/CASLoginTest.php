@@ -28,6 +28,15 @@ class CASLoginTest extends TestCase
         $this->assertSame($login->fromDateTime(new \DateTime('2015-01-01 11:00am')), 'amam');
     }
 
+    public function testDefaultDateOverrideConfig()
+    {
+        config([
+            'casserver.userClass' => UserFake::class
+        ]);
+        $login = new CASLogin();
+        $this->assertSame($login->fromDateTime(new \DateTime('2015-01-01 11:00am')), '2015-01-01 11:00:00');
+    }
+
     public function testBadSetting()
     {
         $this->expectException(\Exception::class);

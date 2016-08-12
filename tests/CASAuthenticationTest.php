@@ -272,6 +272,15 @@ class CasAuthenticationTest extends TestCase
         $this->assertSame($auth->fromDateTime(new \DateTime('2015-01-01 11:00am')), 'amam');
     }
 
+    public function testDefaultDateOverrideConfig()
+    {
+        config([
+            'casserver.userClass' => UserFake::class
+        ]);
+        $auth = new CASAuthentication();
+        $this->assertSame($auth->fromDateTime(new \DateTime('2015-01-01 11:00am')), '2015-01-01 11:00:00');
+    }
+
     public function testUseAuth()
     {
         // Bumps lastUsed
