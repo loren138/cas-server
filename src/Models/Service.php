@@ -4,7 +4,6 @@ namespace Loren138\CASServer\Models;
 
 class Service
 {
-
     private $services;
 
     public function __construct()

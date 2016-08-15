@@ -6,7 +6,7 @@ use Loren138\CASServer\Models\CASAuthentication;
 use Loren138\CASServer\Models\CASTicket;
 use Carbon\Carbon;
 
-class CasAuthenticationTest extends TestCase
+class CASAuthenticationTest extends TestCase
 {
     use DatabaseMigrations;
 

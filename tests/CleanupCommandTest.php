@@ -12,7 +12,6 @@ class CleanupCommandTest extends TestCase
 
     public function testCommand()
     {
-
         $auth = new CASAuthentication();
         $auth->username = 't';
         $auth->lastUsed = Carbon::now();

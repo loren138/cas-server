@@ -74,7 +74,6 @@ class CasController extends Controller
         CASTicket $CASTicket,
         $renew
     ) {
-
         if ($request->has('service')) {
             $ser = $request->input('service');
             if (!$service->validate($ser)) {
