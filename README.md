@@ -1,5 +1,9 @@
 # Laravel CAS Server
 
+## Todo
+- Add SAML/Warn
+- Unit test flashing an error to session
+
 This is a Laravel implementation of the CAS protocol because tomcat/CAS are way to
 hard to deal with and keep up to date.  This should be much easier and much easier
 to understand.
@@ -46,7 +50,7 @@ The class for users must Implement Loren138\CASServer\Models\CASUserInterface
      }
 
 Last, update the ``casserver.php`` file in the config folder such that the userClass 
-setting references your class.
+setting references your class (and update other settings as desired).
 
 You should now have a working CAS Server.
 
@@ -68,10 +72,25 @@ It is recommended to verify/set the following in ``config/session.php``:
 
     'secure'    => true,
     'http_only' => true,
+    'expire_on_close' => true,
 
 It is also recommended to change the cookie name in ``config/session.php``:
 
     'cookie' => 'cas_session',
+
+You should also make sure the ``lifetime`` variable is at least as long as your
+sso lifetime in ``casserver.php`` in ``config/session.php`` by default,
+you'll want to set session lifetime to ``480``.
+
+## Catching CSRF Errors
+
+In the render (not report) function of ``app/Exceptions/Handler.php``, you
+may want to add the following:
+
+    if ($e instanceof TokenMismatchException) {
+        session()->flash('error', 'Validation Token expired. Please try again.');
+        return redirect()->back();
+    }
 
 ## SSL
 

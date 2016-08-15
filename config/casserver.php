@@ -87,6 +87,7 @@ return [
 
         // This is a fixed window for the maximum life regardless of
         // use of the SSO session.
+        // For this to work lifetime in your session.php config file must also be this long!
         // Can be any time understood by DateTime::modify
         // http://php.net/manual/en/datetime.modify.php
         // Default: 8 hours

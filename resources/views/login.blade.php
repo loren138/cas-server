@@ -36,6 +36,11 @@
                     <h2 class="title">{{ $error }}</h2>
                 </div>
             @endif
+            @if (Session::has('error'))
+                <div class="error">
+                    <h2 class="title">{{ Session::get('error') }}</h2>
+                </div>
+            @endif
             <div class="input-container">
                 <input required="required" tabindex="1" accesskey="u" size="25" autocomplete="off" name="username" type="text" value="">
                 <label for="username">Username</label>

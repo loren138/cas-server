@@ -1,0 +1,28 @@
+env:
+  - ILLUMINATE_VERSION=5.0.*
+
+cache:
+  directories:
+  - $HOME/.composer/cache
+
+matrix:
+  include:
+    - php: 5.5.9
+      env: ILLUMINATE_VERSION=5.1.*
+    - php: 5.5.9
+      env: ILLUMINATE_VERSION=5.2.*
+    - php: 5.6
+      env: ILLUMINATE_VERSION=5.1.*
+    - php: 5.6
+      env: ILLUMINATE_VERSION=5.2.*
+    - php: 7.0
+      env: ILLUMINATE_VERSION=5.1.*
+    - php: 7.0
+      env: ILLUMINATE_VERSION=5.2.*
+
+before_script:
+  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+
+script:
+  - vendor/bin/phpcs --standard=psr2 src/
+  - vendor/bin/phpunit
