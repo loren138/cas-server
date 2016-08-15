@@ -6,17 +6,13 @@ php:
   - '7.0'
 
 env:
+  - TESTBENCH_VERSION=3.1.*
   - TESTBENCH_VERSION=3.2.*
+  - TESTBENCH_VERSION=3.3.*@dev
 
 cache:
   directories:
   - $HOME/.composer/cache
-
-matrix:
-  include:
-    - env: TESTBENCH_VERSION=3.1.*
-    - env: TESTBENCH_VERSION=3.2.*
-    - env: TESTBENCH_VERSION=3.3.*@dev
 
 before_script:
   - composer require "orchestra/testbench:${TESTBENCH_VERSION}" --no-update

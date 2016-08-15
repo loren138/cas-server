@@ -36,7 +36,7 @@ class CasControllerTest extends TestCase
         $this->visit('/login')
             ->see('Login')
             ->see('non-secure')
-            ->dontSeeElement('#msg');
+            ->dontSee('Invalid');
     }
 
     public function testLoginServiceFail()
