@@ -642,7 +642,8 @@ class CasControllerTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessageRegExp("/session/");
         config(['casserver.disableNonSSL' => true]);
-        $request = new Request();$request->server->set('HTTPS', 'on');
+        $request = new Request();
+        $request->server->set('HTTPS', 'on');
         $cas = new CasController($request);
         $service = new Service();
         $auth = \Mockery::mock('\Loren138\CASServer\Models\CASAuthentication');
