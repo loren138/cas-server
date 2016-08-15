@@ -1,6 +1,10 @@
 language: php
 sudo: false
 
+php:
+  - '5.6'
+  - '7.0'
+
 env:
   - TESTBENCH_VERSION=3.2.*
 
@@ -10,18 +14,9 @@ cache:
 
 matrix:
   include:
-    - php: 5.5.9
-      env: TESTBENCH_VERSION=3.1.*
-    - php: 5.5.9
-      env: TESTBENCH_VERSION=3.3.*@dev
-    - php: 5.6
-      env: TESTBENCH_VERSION=3.1.*
-    - php: 5.6
-      env: TESTBENCH_VERSION=3.3.*@dev
-    - php: 7.0
-      env: TESTBENCH_VERSION=3.1.*
-    - php: 7.0
-      env: TESTBENCH_VERSION=3.3.*@dev
+    - env: TESTBENCH_VERSION=3.1.*
+    - env: TESTBENCH_VERSION=3.2.*
+    - env: TESTBENCH_VERSION=3.3.*@dev
 
 before_script:
   - composer require "orchestra/testbench:${TESTBENCH_VERSION}" --no-update
