@@ -8,7 +8,7 @@ php:
 env:
   - TESTBENCH_VERSION=3.1.*
   - TESTBENCH_VERSION=3.2.*
-  - TESTBENCH_VERSION=3.3.*@dev
+#  - TESTBENCH_VERSION=3.3.*@dev # Reenable after my pull request is merged to add lifetime session config
 
 cache:
   directories:

@@ -4,7 +4,6 @@ namespace Loren138\CASServer\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Expression;
-use Session;
 use Carbon\Carbon;
 
 class CASAuthentication extends Model
@@ -121,7 +120,7 @@ class CASAuthentication extends Model
             $ticket = new CASTicket();
             $query->select(new Expression('1'))
                 ->from($ticket->table)
-                ->whereColumn($ticket->table.'.authenticationId', '=', $this->table.'.'.$this->primaryKey);
+                ->where($ticket->table.'.authenticationId', '=', new Expression($this->table.'.'.$this->primaryKey));
         })->delete();
     }
 }
