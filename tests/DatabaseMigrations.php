@@ -11,17 +11,12 @@ trait DatabaseMigrations
      */
     public function runDatabaseMigrations()
     {
-        $this->artisan('migrate:refresh', [
-            '--database' => 'testing',
-            '--force' => true,
+        $this->artisan('migrate', [
             '--realpath' => realpath(__DIR__.'/../database/migrations'),
         ]);
 
-        /*$this->beforeApplicationDestroyed(function () {
-            $this->artisan('migrate:rollback', [
-                '--database' => 'testing',
-                '--realpath' => realpath(__DIR__.'/database/migrations'),
-            ]);
-        });*/
+        $this->beforeApplicationDestroyed(function () {
+            $this->artisan('migrate:rollback');
+        });
     }
 }
