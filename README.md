@@ -11,7 +11,7 @@ to understand.
 Because of the required URLs for CAS, it is recommended that you install this
 in it's own Laravel instance.
 
-Laravel installation instruction can be found here:
+Laravel installation instructions can be found here:
 https://laravel.com/docs/5.2/installation
 
 ## Install
