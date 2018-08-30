@@ -179,6 +179,16 @@ class CasController extends Controller
         return $this->getServiceValidate3($request, $CASTicket, false);
     }
 
+    public function getProxyValidate(Request $request, CASTicket $CASTicket)
+    {
+        return $this->getServiceValidate3($request, $CASTicket, false);
+    }
+
+    public function getProxyValidate3(Request $request, CASTicket $CASTicket)
+    {
+        return $this->getServiceValidate3($request, $CASTicket, true);
+    }
+
     public function getLogout(Request $request, Service $service, CASAuthentication $CASAuthentication)
     {
         $CASAuthentication->logout();
