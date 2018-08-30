@@ -17,8 +17,6 @@
         @endif
         @if ($serviceResponse['authenticationSuccess']['proxyGrantingTicket'])
             <cas:proxyGrantingTicket>{{$serviceResponse['authenticationSuccess']['proxyGrantingTicket']}}</cas:proxyGrantingTicket>
-        @else
-            <cas:proxyGrantingTicket/>
         @endif
     </cas:authenticationSuccess>
 @else

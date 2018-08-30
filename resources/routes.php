@@ -16,9 +16,15 @@ Route::get('/login', '\Loren138\CASServer\Http\Controllers\CasController@getLogi
 Route::post('/login', '\Loren138\CASServer\Http\Controllers\CasController@postLogin');
 Route::get('/logout', '\Loren138\CASServer\Http\Controllers\CasController@getLogout');
 
+Route::get('/p3/login', '\Loren138\CASServer\Http\Controllers\CasController@getLogin');
+Route::post('/p3/login', '\Loren138\CASServer\Http\Controllers\CasController@postLogin');
+Route::get('/p3/logout', '\Loren138\CASServer\Http\Controllers\CasController@getLogout');
+
 // CAS 1.0 Validate
 Route::get('/validate', '\Loren138\CASServer\Http\Controllers\CasController@getValidate');
 // CAS 2.0 Validate
 Route::get('/serviceValidate', '\Loren138\CASServer\Http\Controllers\CasController@getServiceValidate');
+Route::get('/proxyValidate', '\Loren138\CASServer\Http\Controllers\CasController@getProxyValidate');
 // CAS 3.0 Validate
 Route::get('/p3/serviceValidate', '\Loren138\CASServer\Http\Controllers\CasController@getServiceValidate3');
+Route::get('/p3/proxyValidate', '\Loren138\CASServer\Http\Controllers\CasController@getProxyValidate3');

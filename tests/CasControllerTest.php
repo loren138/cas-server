@@ -311,7 +311,6 @@ class CasControllerTest extends TestCase
         $this->assertEquals(
             '<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas"> <cas:authenticationSuccess> '.
             '<cas:user>t</cas:user> '.
-            '<cas:proxyGrantingTicket/> '.
             '</cas:authenticationSuccess> </cas:serviceResponse>',
             trim(preg_replace('/\s+/', ' ', $response->getContent()))
         );
@@ -422,7 +421,6 @@ class CasControllerTest extends TestCase
             '<cas:group>g1</cas:group> '.
             '<cas:group>g2</cas:group> '.
             '</cas:attributes> '.
-            '<cas:proxyGrantingTicket/> '.
             '</cas:authenticationSuccess> </cas:serviceResponse>',
             trim(preg_replace('/\s+/', ' ', $response->getContent()))
         );
