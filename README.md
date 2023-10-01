@@ -1,3 +1,7 @@
+# Archived
+
+Feel free to fork/clone/copy this for your own uses (and update to more recent versions of Laravel)
+
 # Laravel CAS Server
 
 ## Todo
